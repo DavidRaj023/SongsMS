@@ -3,25 +3,17 @@ const ExcelJs = require('exceljs');
 const path = require('path');
 const readXlsxFile = require("read-excel-file/node");
 
-const workbook1 = new ExcelJs.Workbook();
-const worksheet1 = workbook1.addWorksheet('EMS');
-    
+//Export All
+const excelWriteAll = async(songs, headers, filePath) => {
+    const workbook = new ExcelJs.Workbook();
+    const worksheet = workbook.addWorksheet('Cloud_EMS');
+    worksheet.columns = headers;
 
-const excelWriteAll = async(employees, headers, filePath) => {
-    const workbook2 = new ExcelJs.Workbook();
-    const worksheet2 = workbook2.addWorksheet('Cloud_EMS');
-    worksheet2.columns = headers;
-
-    employees.forEach(emp => {
-        worksheet2.addRow(emp);
+    songs.forEach(song => {
+        worksheet.addRow(song).commit();
     });
-    const data = await workbook2.xlsx.writeFile(filePath);
-}
-
-const excelWrite = async(employee, headers, filePath) => {
-    worksheet1.columns = headers;
-    worksheet1.addRow(employee);
-    await workbook1.xlsx.writeFile(filePath);
+    const data = await workbook.xlsx.writeFile(filePath);
+    console.log(data);
 }
 
 const excelRead = async(req) =>{
@@ -60,7 +52,6 @@ const excelRead = async(req) =>{
 
 
 module.exports = {
-    excelWriteAll, 
-    excelWrite,
+    excelWriteAll,
     excelRead
 };

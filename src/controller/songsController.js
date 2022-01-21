@@ -71,9 +71,10 @@ class MainController {
         const pool = await poolPromise
         const result = await pool.request().query(constants.QUERY_GETALLDATA);
         var songs = result.recordset;
-        await excelWriteAll(songs, constants.HEADER, constants.EXPORT_EXCEL);
+        const file = await excelWriteAll(songs, constants.HEADER, constants.EXPORT_EXCEL);
         res.status(200).send({
             message: constants.SUCCESS_EXCEL_EXPORT,
+            file: constants.EXPORT_EXCEL
         });
     } catch (e) {
         console.log(e);
