@@ -15,6 +15,7 @@
     "msnodesqlv8": "^2.4.4",
     "mssql": "^7.3.0",
     "multer": "^1.4.4",
+    "pdf-lib": "^1.17.1",
     "read-excel-file": "^5.2.26"
   }
 }

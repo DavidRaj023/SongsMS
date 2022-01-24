@@ -4,6 +4,7 @@ const constants = require('../utils/constant');
 const util = require('../utils/util');
 const path = require('path');
 const {excelWriteAll, excelWrite, excelRead} = require('../utils/excel');
+const createPDF = require('../utils/pdf');
 
 class MainController {
   async addSong(req, res){
@@ -81,6 +82,30 @@ class MainController {
         res.status(500).send(e);
     }
   }
+
+  async exportPDF(req, res){
+    try {
+        if(req.body != null) {
+          const songId = req.body.songId;
+          const searchQuery = constants.QUERY_GET + songId;
+          const pool = await poolPromise
+          const result = await pool.request().query(searchQuery);
+
+          const song = result.recordset[0];
+
+          const Template = path.join(__dirname, '../../resources/Song_Template.pdf');
+          
+          const fileName = await createPDF(song, Template);
+          res.send("Pdf Created in: " + fileName);
+        } else {
+          res.send('Please enter the valid song id !')
+        }        
+    } catch (e) {
+        console.log(e);
+        res.status(400).send(e.message);
+    }
+  }
+  
 
   async searchSongs(req, res){
     try {

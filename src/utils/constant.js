@@ -1,6 +1,7 @@
 exports.QUERY_INSERT ="INSERT INTO [dbo].[songs] (name,type,albumName,composerName,singerName,genreNames,hasLyrics,durationInSec,releaseDate) VALUES (@name,@type,@albumName,@composerName,@singerName,@genreNames,@hasLyrics,@durationInSec,@releaseDate)";
 exports.QUERY_GETALLDATA = "SELECT * FROM [dbo].[songs];"
 exports.QUERY_GETALLWHERE = "SELECT * FROM [dbo].[songs] WHERE "
+exports.QUERY_GET = "SELECT * FROM [dbo].[songs] WHERE songId ="
 exports.QUERY_GETALLNAME = "SELECT name FROM [dbo].[songs];"
 exports.EXPORT_EXCEL = './data/Songs_Export.xlsx';
 exports.EXPORT_SEARCH = './data/Songs_Search_Export.xlsx';
