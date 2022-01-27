@@ -9,7 +9,7 @@ let routes = (app) => {
         router.post('/api/v1/addFromExcel', upload.single('file'), controller.insertFromExcel);
         router.get('/api/v1/songs/export', controller.exportExcel);
         router.post('/api/v1/songs/export/pdf', controller.exportPDF);
-        router.get('/api/v1/songs/search', controller.searchSongs);
+        router.post('/api/v1/songs/search', controller.searchSongs);
         router.get('/api/v1/songs/searchExport', controller.searchExport);
         app.use(router);    
     } catch (error) {

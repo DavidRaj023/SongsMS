@@ -88,6 +88,7 @@ class MainController {
         if(req.body != null) {
           const songId = req.body.songId;
           const searchQuery = constants.QUERY_GET + songId;
+          console.log(searchQuery);
           const pool = await poolPromise
           const result = await pool.request().query(searchQuery);
 
