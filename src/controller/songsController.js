@@ -24,7 +24,7 @@ class MainController {
           .input('durationInSec',sql.Int , song.durationInSec)
           .input('releaseDate',sql.Date , song.releaseDate)
           .query(constants.QUERY_INSERT);
-          res.send(result);
+          res.send(song.name + " Successfully Added");
         } else {
           res.send('Please fill all the details!')
         }        
