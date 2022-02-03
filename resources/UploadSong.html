@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <title>Song Upload</title>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <style>
+      html, body {
+      display: flex;
+      justify-content: center;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 15px;
+      }
+      form {
+      border: 50px solid #f1f1f1;
+      }
+      input[type=text], input[type=date] {
+      width: 100%;
+      padding: 16px 8px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      }
+      select{
+      width: 100%;
+      padding: 16px 8px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      }
+        
+      .icon {
+      font-size: 110px;
+      display: flex;
+      justify-content: center;
+      color: #4286f4;
+      }
+      button {
+      background-color: #4286f4;
+      color: white;
+      padding: 14px 0;
+      margin: 10px 0;
+      border: none;
+      cursor: grab;
+      width: 48%;
+      }
+      h1 {
+      text-align:center;
+      fone-size:18;
+      }
+      button:hover {
+      opacity: 0.8;
+      }
+      .formcontainer {
+      text-align: center;
+      margin: 24px 50px 12px;
+      }
+      .container {
+      padding: 16px 0;
+      text-align:left;
+      }
+      span.psw {
+      float: right;
+      padding-top: 0;
+      padding-right: 15px;
+      }
+      /* Change styles for span on extra small screens */
+      @media screen and (max-width: 300px) {
+      span.psw {
+      display: block;
+      float: none;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="POST">
+      <h1>Add New Song</h1>
+      <div class="icon">
+        <i class="fas fa-compact-disc"></i>
+      </div>
+      <div class="formcontainer">
+      <div class="container">
+        <label for="name"><strong>Song Name</strong></label>
+        <input type="text" placeholder="Enter Song Name" name="name" required>
+        <label for="type"><strong>Song Type</strong></label>
+        <select name="type">
+          <option value="Song">Song</option>
+          <option value="Karaoke">Karaoke</option>
+        </select>
+        <label for="albumName"><strong>Album Name</strong></label>
+        <input type="text" placeholder="Enter Album Name" name="albumName" required>
+        <label for="composerName"><strong>Composer Name</strong></label>
+        <input type="text" placeholder="Enter Composer Name" name="composerName" required>
+        <label for="singerName"><strong>Singer Name</strong></label>
+        <input type="text" placeholder="Enter Singer Name" name="singerName" required>
+        <label for="genreNames"><strong>Genre</strong></label>
+        <input type="text" placeholder="Enter Song Genre" name="genreNames" required>
+        <label for="hasLyrics"><strong>Lyrics Status</strong></label>
+        <select name="type">
+          <option value="TRUE">Yes</option>
+          <option value="FALSE">No</option>
+        </select>
+        <label for="durationInSec"><strong>Song duration</strong></label>
+        <input type="text" placeholder="Enter duration In Sec" name="durationInSec" required>
+        <label for="releaseDate"><strong>Release Date</strong></label>
+        <input type="date" placeholder="date" name="releaseDate" required>  
+      </div>
+      <button type="submit"><strong>Add</strong></button>
+    </form>
+  </body>

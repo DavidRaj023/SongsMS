@@ -1,7 +1,7 @@
 const sql = require('mssql/msnodesqlv8')
 
 const config = {
-  database: 'music',
+  database: 'musicdb',
   server: 'localhost',
   driver: 'msnodesqlv8',
   user:'david',

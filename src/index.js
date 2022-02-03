@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 songsRouter(app);
 
-const filePath = path.join(__dirname, '../resources/index.html');
+const filePath = path.join(__dirname, '../resources/UploadSong.html');
 
 app.get("/", (req, res) => {
   res.sendFile(filePath);
