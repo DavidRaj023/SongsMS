@@ -110,7 +110,7 @@ class MainController {
 
   async searchSongs(req, res){
     try {
-      const searchQuery = constants.QUERY_GETALLWHERE+ req.body.filter + ' = \'' + req.body.value + '\'';
+      const searchQuery = constants.QUERY_GETALLWHERE+ req.body.filter + ' = \'' + req.body.value + '\' ' + "ORDER BY name DESC";
       console.log(searchQuery);
       const pool = await poolPromise
       const result = await pool.request().query(searchQuery);
@@ -121,6 +121,7 @@ class MainController {
         })
       }
       console.log(songs);
+
       res.status(200).send({
         result: songs
       })
